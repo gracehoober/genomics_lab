@@ -4,33 +4,50 @@ import uuid
 class Specimen(models.Model):
     """DNA lab specimen class."""
 
-    id = models.
-    specimen_origin = models.CharField()
+    id = models.UUIDField(
+        primary_key=True,
+        default=uuid.uuid4,
+        editable=False,
+        unique=True
+        )
+    specimen_origin = models.CharField(max_length=20)
     submission_date = models.DateTimeField()
+    notes = models.TextField()
 
-class Experiment(models.Model):
-    """Experiment class in DNA lab."""
+# class Experiment(models.Model):
+#     """Experiment class in DNA lab."""
+#     id = models.UUIDField(
+#         primary_key=True,
+#         default=uuid.uuid4,
+#         editable=False,
+#         unique=True
+#         )
+#     name = models.CharField(max_length=20, unique=True)
+#     date_range = models.DateField()
+#     lead_scientist = models.
 
-    name = models.CharField()
-    date_range = models.DateField()
-    lead_scientist = models.CharField()
-
-
+# TODO: ensure a sequence cannot be duplicated
 class Sequence(models.Model):
     """DNA lab sequence class."""
 
-    id = models.CharField()
+    id = models.UUIDField(
+        primary_key=True,
+        default=uuid.uuid4,
+        editable=False,
+        unique=True
+        )
+    dna_sequence = models.TextField()
     specimen = models.ForeignKey(Specimen, on_delete=models.CASCADE)
-    experiment = models.ForeignKey(Experiment, on_delete=models.CASCADE)
+    # experiment = models.ForeignKey(Experiment, on_delete=models.CASCADE)
 
 
-class Scientist(models.Model):
-    """Scientist class in DNA lab."""
+# class Scientist(models.Model):
+#     """Scientist class in DNA lab."""
 
-    employee_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    first_name = models.CharField()
-    last_name = models.CharField()
-    seniority = models.
-    email = models.EmailField()
-
+#     employee_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+#     first_name = models.CharField(max_length=20)
+#     last_name = models.CharField(max_length=20)
+#     education_level = models.RadioSelect(choices) #no degree, BS/BA, Masters, PHD
+#     email = models.EmailField(max_length=40)
+#     is_admin = models.BooleanField(CheckboxInput)
 

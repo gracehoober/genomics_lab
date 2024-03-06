@@ -1,11 +1,11 @@
 # GenomicsLab
-Genomics Lab is an application for keeping track of gene samples and sequences.
+Genomics Lab is an application for keeping track of gene samples and sequences. GenomicsLab is built in Django for it's admin interface, out-of-the-box ORM, and middleware (which will be used in future features).
 
 ## Features:
 * Submit a DNA specimen or a DNA sequence.
 * Retrieve any specimen or sequnce from the data base.
 * Search for any specimen or sequence.
-* Testing coverage is 98%.
+* Testing coverage is 98% (in progress).
 
 ## Instructions:
 ### To run the app on your machine

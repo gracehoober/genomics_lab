@@ -1,15 +1,9 @@
 from django.db import models
-import uuid
 
 class Specimen(models.Model):
     """DNA lab specimen class."""
 
-    id = models.UUIDField(
-        primary_key=True,
-        default=uuid.uuid4,
-        editable=False,
-        unique=True
-        )
+    # default id will be provided by Django
     specimen_origin = models.CharField(max_length=20)
     submission_date = models.DateTimeField()
     notes = models.TextField(max_length=500)
@@ -19,12 +13,7 @@ class Specimen(models.Model):
 class Sequence(models.Model):
     """DNA lab sequence class."""
 
-    id = models.UUIDField(
-        primary_key=True,
-        default=uuid.uuid4,
-        editable=False,
-        unique=True
-        )
+    # default id will be provided by Django
     dna_sequence = models.TextField(max_length=500)
     specimen = models.ForeignKey(Specimen, on_delete=models.CASCADE)
     # experiment = models.ForeignKey(Experiment, on_delete=models.CASCADE)

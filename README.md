@@ -20,7 +20,7 @@ Genomics Lab is an application for keeping track of gene samples and sequences.
 ## Where to get help
 
 ## Contributors
-1. @gracehoober [Github Profile](https://github.com/gracehoober)
+1. @gracehoober [Grace's github profile](https://github.com/gracehoober)
 
 
 

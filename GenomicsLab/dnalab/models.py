@@ -12,7 +12,26 @@ class Specimen(models.Model):
         )
     specimen_origin = models.CharField(max_length=20)
     submission_date = models.DateTimeField()
-    notes = models.TextField()
+    notes = models.TextField(max_length=500)
+
+
+# TODO: ensure a sequence cannot have the same specimen as another entry
+class Sequence(models.Model):
+    """DNA lab sequence class."""
+
+    id = models.UUIDField(
+        primary_key=True,
+        default=uuid.uuid4,
+        editable=False,
+        unique=True
+        )
+    dna_sequence = models.TextField(max_length=500)
+    specimen = models.ForeignKey(Specimen, on_delete=models.CASCADE)
+    # experiment = models.ForeignKey(Experiment, on_delete=models.CASCADE)
+
+
+
+# Future models:
 
 # class Experiment(models.Model):
 #     """Experiment class in DNA lab."""
@@ -25,21 +44,6 @@ class Specimen(models.Model):
 #     name = models.CharField(max_length=20, unique=True)
 #     date_range = models.DateField()
 #     lead_scientist = models.
-
-# TODO: ensure a sequence cannot be duplicated
-class Sequence(models.Model):
-    """DNA lab sequence class."""
-
-    id = models.UUIDField(
-        primary_key=True,
-        default=uuid.uuid4,
-        editable=False,
-        unique=True
-        )
-    dna_sequence = models.TextField()
-    specimen = models.ForeignKey(Specimen, on_delete=models.CASCADE)
-    # experiment = models.ForeignKey(Experiment, on_delete=models.CASCADE)
-
 
 # class Scientist(models.Model):
 #     """Scientist class in DNA lab."""

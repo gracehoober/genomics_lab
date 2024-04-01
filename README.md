@@ -22,6 +22,3 @@ GenomicsLab is an application for keeping track of gene samples and sequences. G
 
 ## Contributors
 1. @gracehoober [Grace's github profile](https://github.com/gracehoober)
-
-
-

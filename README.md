@@ -11,6 +11,7 @@ GenomicsLab is an application for keeping track of gene samples and sequences. G
 ### To run the app on your machine
 - Clone repository.
 - Create your python virtual environment.
+- Install the project's requirements.
 - Enter GenomicsLab directory.
 - Use `python manage.py runserver` to run the Django development server.
 - Go to http://localhost:8000/

@@ -8,6 +8,11 @@ class Specimen(models.Model):
     submission_date = models.DateTimeField()
     notes = models.TextField(max_length=500)
 
+    def __str__(self):
+        """Returns a string representation of a specimen."""
+
+        return self.specimen_origin
+
 
 # TODO: ensure a sequence cannot have the same specimen as another entry
 class Sequence(models.Model):
@@ -18,6 +23,10 @@ class Sequence(models.Model):
     specimen = models.ForeignKey(Specimen, on_delete=models.CASCADE)
     # experiment = models.ForeignKey(Experiment, on_delete=models.CASCADE)
 
+    def __str__(self):
+        """Returns a string representation of a sequence."""
+
+        return self.dna_sequence
 
 
 # Future models:

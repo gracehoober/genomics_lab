@@ -15,6 +15,7 @@ from pathlib import Path
 
 # load environment variable from .env
 load_dotenv()
+
 DJANGO_DEV_SECRET_KEY = os.environ['D_SECRET_KEY']
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.

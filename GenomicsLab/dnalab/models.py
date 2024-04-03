@@ -4,7 +4,7 @@ class Specimen(models.Model):
     """DNA lab specimen class."""
 
     # default id will be provided by Django
-    specimen_origin = models.CharField(max_length=20)
+    specimen_identifier = models.CharField(max_length=20)
     submission_date = models.DateTimeField()
     notes = models.TextField(max_length=500)
     # TODO: create a list of all dna sequences

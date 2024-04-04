@@ -22,7 +22,7 @@ class SpecimenModelTest(TestCase):
             specimen_id="Test-Specimen-1")
 
         self.assertEqual(isinstance(created_specimen, Specimen), True)
-        # self.assertEqual(created_specimen["notes"], "Test notes")
+        self.assertEqual(created_specimen.notes, "Test-notes")
 
 class SequenceModelTest(TestCase):
     """Test cases for the Sequence Model."""
@@ -46,4 +46,7 @@ class SequenceModelTest(TestCase):
         created_sequence = Sequence.objects.get(
             dna_sequence="GATTACA")
 
+        specimen = Specimen.objects.get(specimen_id="Test-Specimen-2")
+
         self.assertEqual(isinstance(created_sequence, Sequence), True)
+        self.assertEqual(created_sequence.specimen, specimen)

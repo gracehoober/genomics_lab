@@ -7,7 +7,6 @@ class Specimen(models.Model):
     specimen_id = models.CharField(max_length=20)
     submission_date = models.DateTimeField()
     notes = models.TextField(max_length=500)
-    # TODO: create a list of all dna sequences
 
     def __str__(self):
         """Returns a string representation of a specimen."""

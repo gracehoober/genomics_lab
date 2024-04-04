@@ -9,20 +9,20 @@ class SpecimenModelTest(TestCase):
     def setUp(self):
         """Create a sample Specimen instance for testing."""
 
-        self.specimen = Specimen.objects.create(
-            specimen_identifier="Test animal",
+        Specimen.objects.create(
+            specimen_id="Test-Specimen-1",
             submission_date=timezone.now(),
-            notes="Test animal notes"
+            notes="Test-notes"
         )
 
-    def test_speciment_was_created(self):
+    def test_specimen_created(self):
         """Tests a specimen was created."""
 
         created_specimen = Specimen.objects.get(
-            specimen_identifier="Test Specimen")
+            specimen_id="Test-Specimen-1")
 
         self.assertEqual(isinstance(created_specimen, Specimen), True)
-
+        # self.assertEqual(created_specimen["notes"], "Test notes")
 
 class SequenceModelTest(TestCase):
     """Test cases for the Sequence Model."""
@@ -31,18 +31,19 @@ class SequenceModelTest(TestCase):
         """Create a sample Specimen and Sequence instance for testing."""
 
         test_specimen = Specimen.objects.create(
-            specimen_identifier="Test Specimen",
+            specimen_id="Test-Specimen-2",
             submission_date=timezone.now(),
-            notes="notes about Test Specimen for testing a sequence."
+            notes="notes about Test-Specimen-2 for testing a sequence."
         )
         Sequence.objects.create(
-            dna_sequence="GATTACA", specimen=test_specimen
+            dna_sequence="GATTACA",
+            specimen=test_specimen
         )
 
-    def test_seqence_was_created(self):
+    def test_sequence_created(self):
         """Tests a sequence was created."""
 
         created_sequence = Sequence.objects.get(
-            specimen_identifier="Test Specimen")
+            dna_sequence="GATTACA")
 
         self.assertEqual(isinstance(created_sequence, Sequence), True)

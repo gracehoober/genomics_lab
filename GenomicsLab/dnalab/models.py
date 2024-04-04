@@ -21,7 +21,6 @@ class Sequence(models.Model):
     # default id will be provided by Django
     dna_sequence = models.TextField(max_length=500)
     specimen = models.ForeignKey(Specimen, on_delete=models.CASCADE)
-    # experiment = models.ForeignKey(Experiment, on_delete=models.CASCADE)
 
     def __str__(self):
         """Returns a string representation of a sequence."""

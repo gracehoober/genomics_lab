@@ -24,6 +24,25 @@ class SpecimenModelTest(TestCase):
         self.assertEqual(isinstance(created_specimen, Specimen), True)
         self.assertEqual(created_specimen.notes, "Test-notes")
 
+    def test_specimen_submission_date(self):
+        """Tests the date/time field."""
+
+        specimen3 = Specimen.objects.create(
+            specimen_id="Test-Specimen-3",
+            submission_date=timezone.now(),
+            notes="Test-notes-3"
+        )
+        specimen3_from_db = Specimen.objects.get(
+            specimen_id= "Test-Specimen-3"
+            )
+
+        self.assertEqual(specimen3.submission_date,specimen3_from_db.submission_date)
+
+    def test_str_method(self):
+        """Tests the dunder str method of a Specimen."""
+        # TODO: Write this test
+
+
 class SequenceModelTest(TestCase):
     """Test cases for the Sequence Model."""
 
@@ -50,3 +69,8 @@ class SequenceModelTest(TestCase):
 
         self.assertEqual(isinstance(created_sequence, Sequence), True)
         self.assertEqual(created_sequence.specimen, specimen)
+
+    def test_str_method(self):
+        """Tests the dunder str method of a Sequence."""
+        # TODO: Write this test
+

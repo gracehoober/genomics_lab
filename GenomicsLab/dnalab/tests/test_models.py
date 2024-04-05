@@ -33,14 +33,19 @@ class SpecimenModelTest(TestCase):
             notes="Test-notes-3"
         )
         specimen3_from_db = Specimen.objects.get(
-            specimen_id= "Test-Specimen-3"
-            )
+            specimen_id="Test-Specimen-3"
+        )
 
-        self.assertEqual(specimen3.submission_date,specimen3_from_db.submission_date)
+        self.assertEqual(specimen3.submission_date,
+                         specimen3_from_db.submission_date)
 
     def test_str_method(self):
         """Tests the dunder str method of a Specimen."""
-        # TODO: Write this test
+
+        specimen = Specimen.objects.get(
+            specimen_id="Test-Specimen-1"
+        )
+        self.assertEqual(str(specimen), specimen.specimen_id)
 
 
 class SequenceModelTest(TestCase):
@@ -72,5 +77,9 @@ class SequenceModelTest(TestCase):
 
     def test_str_method(self):
         """Tests the dunder str method of a Sequence."""
-        # TODO: Write this test
 
+        sequence = Sequence.objects.get(
+            dna_sequence="GATTACA"
+        )
+
+        self.assertEqual(str(sequence), sequence.dna_sequence)

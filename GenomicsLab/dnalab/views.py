@@ -20,7 +20,7 @@ def specimen_list(request):
     response = Specimen.objects.all()
     return HttpResponse(response)
 
-def sequence_list(request):
+def sequence_list(request)
     """List all sequences."""
 
 def specimen_detail(request, specimen_id):

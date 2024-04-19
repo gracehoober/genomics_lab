@@ -14,7 +14,6 @@ class Specimen(models.Model):
         return self.specimen_id
 
 
-# TODO: ensure a sequence cannot have the same specimen as another entry
 class Sequence(models.Model):
     """DNA lab sequence class."""
 

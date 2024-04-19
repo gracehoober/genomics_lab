@@ -17,6 +17,9 @@ def sequence_entry(request):
 def specimen_list(request):
     """Lists all specimens."""
 
+    response = Specimen.objects.all()
+    return HttpResponse(response)
+
 def sequence_list(request):
     """List all sequences."""
 

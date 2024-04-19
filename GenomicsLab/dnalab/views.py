@@ -30,3 +30,5 @@ def specimen_detail(request, specimen_id):
 def sequence_detail(request, sequence_id):
     """Lists a single sequence."""
 
+    response = Sequence.objects.get(id=sequence_id)
+    return HttpResponse(response)
